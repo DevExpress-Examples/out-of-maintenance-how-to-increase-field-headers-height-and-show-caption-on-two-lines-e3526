@@ -30,23 +30,16 @@ namespace WindowsApplication53
     {
         public MyPivotGridViewInfoData() : base() { }
         public MyPivotGridViewInfoData(IViewInfoControl control) : base(control) { }
-        protected override PivotGridViewInfo CreateViewInfo()
-        {
-            return new MyPivotGridViewInfo(this);
-        }
-    }
-    public class MyPivotGridViewInfo : PivotGridViewInfo
-    {
-        public MyPivotGridViewInfo(PivotGridViewInfoData data) : base(data) { }
 
-        protected override FieldMeasures CreateFieldMeasures()
-        {
-            return new MyFieldMeasures(Data, PrintAndPaintAppearance);
+        protected override FieldMeasures CreateFieldMeasures(PivotGridViewInfoData data, PivotGridAppearancesBase appearances, PivotVisualItems visualItems) {
+            return new MyFieldMeasures(data, appearances, visualItems);
         }
     }
+
     public class MyFieldMeasures : FieldMeasures
     {
-        public MyFieldMeasures(PivotGridViewInfoData data, PivotGridAppearancesBase appearances) : base(data, appearances) { }
+        public MyFieldMeasures(PivotGridViewInfoData data, PivotGridAppearancesBase appearances, PivotVisualItems visualItems) : base(data, appearances, visualItems) { }
+
         protected override int CalculateHeaderHeight(PivotFieldItemBase field)
         {
             return 40;

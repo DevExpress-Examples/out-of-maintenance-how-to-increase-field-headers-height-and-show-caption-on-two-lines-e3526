@@ -37,26 +37,16 @@ Namespace WindowsApplication53
         Public Sub New(ByVal control As IViewInfoControl)
             MyBase.New(control)
         End Sub
-        Protected Overrides Function CreateViewInfo() As PivotGridViewInfo
-            Return New MyPivotGridViewInfo(Me)
-        End Function
-    End Class
-    Public Class MyPivotGridViewInfo
-        Inherits PivotGridViewInfo
 
-        Public Sub New(ByVal data As PivotGridViewInfoData)
-            MyBase.New(data)
-        End Sub
-
-        Protected Overrides Function CreateFieldMeasures() As FieldMeasures
-            Return New MyFieldMeasures(Data, PrintAndPaintAppearance)
+        Protected Overrides Function CreateFieldMeasures(data As PivotGridViewInfoData, appearances As PivotGridAppearancesBase, visualItems As PivotVisualItems) As FieldMeasures
+            Return New MyFieldMeasures(data, appearances, visualItems)
         End Function
     End Class
     Public Class MyFieldMeasures
         Inherits FieldMeasures
 
-        Public Sub New(ByVal data As PivotGridViewInfoData, ByVal appearances As PivotGridAppearancesBase)
-            MyBase.New(data, appearances)
+        Public Sub New(ByVal data As PivotGridViewInfoData, ByVal appearances As PivotGridAppearancesBase, visualItems As PivotVisualItems)
+            MyBase.New(data, appearances, visualItems)
         End Sub
         Protected Overrides Function CalculateHeaderHeight(ByVal field As PivotFieldItemBase) As Integer
             Return 40
