@@ -63,7 +63,7 @@ Namespace WindowsApplication53
             MyBase.New(pivotGridControl)
         End Sub
 
-        Protected Overrides Function DrawHeaderBrick(ByVal field As PivotFieldItemBase, ByVal bounds As System.Drawing.Rectangle) As DevExpress.XtraPrinting.IVisualBrick
+        Protected Overrides Function DrawHeaderBrick(ByVal field As PivotFieldItemBase, ByVal bounds As System.Drawing.Rectangle) As DevExpress.XtraPrinting.VisualBrick
             Return MyBase.DrawHeaderBrick(field, bounds)
         End Function
 

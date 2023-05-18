@@ -51,7 +51,7 @@ namespace WindowsApplication53
         public MyPivotGridPrinter(PivotGridControl pivotGridControl) : base(pivotGridControl) { }
 
 
-        protected override DevExpress.XtraPrinting.IVisualBrick DrawHeaderBrick(PivotFieldItemBase field, System.Drawing.Rectangle bounds)
+        protected override DevExpress.XtraPrinting.VisualBrick DrawHeaderBrick(PivotFieldItemBase field, System.Drawing.Rectangle bounds)
         {
             return base.DrawHeaderBrick(field, bounds);
         }
